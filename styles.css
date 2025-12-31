@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* BODY BACKGROUND */
+body {
+    min-height: 100vh;
+    background: linear-gradient(120deg, #000000, #1c1c1c);
+    color: #fff;
+}
+
+/* NAVBAR */
+.navbar {
+    height: 70px;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+.nav-logo {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #00aced;
+}
+
+/* FORM CENTERING */
+.form-wrapper {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 15px;
+}
+
+/* FORM CARD */
+.modern-form {
+    width: 100%;
+    max-width: 420px;
+    padding: 35px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(12px);
+    border-radius: 18px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+}
+
+/* FORM TEXT */
+.modern-form h2 {
+    text-align: center;
+    font-weight: 600;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 14px;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+/* INPUT GROUP */
+.input-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #666;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+}
+
+.input-group label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #aaa;
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+/* FLOATING LABEL */
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -6px;
+    font-size: 12px;
+    color: #00aced;
+}
+
+/* INPUT FOCUS */
+.input-group input:focus {
+    border-bottom-color: #00aced;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #00aced, #0077b5);
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0,172,237,0.4);
+}
+
