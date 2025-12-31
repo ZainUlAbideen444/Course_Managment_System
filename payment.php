@@ -1,3 +1,24 @@
+<?php
+include 'db.php';
+
+if (isset($_POST['save_payment'])) {
+
+    $course_name     = $_POST['course_name'];
+    $amount          = $_POST['amount'];
+    $payment_method  = $_POST['payment_method'];
+    $payment_date    = $_POST['payment_date'];
+
+    $query = "INSERT INTO payments (course_name, amount, payment_method, payment_date)
+              VALUES ('$course_name', '$amount', '$payment_method', '$payment_date')";
+
+    if (mysqli_query($conn, $query)) {
+        echo "<script>alert('Payment added successfully');</script>";
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,30 +39,35 @@
   </ul>
 </nav>
 
-
+<!-- FORM -->
 <div class="form-wrapper">
-  <form class="modern-form">
-    <h2>Add Student</h2>
+  <form class="modern-form" method="POST" action="">
+    <h2>Add Payment</h2>
     <p class="subtitle">Enter payment details</p>
 
     <div class="input-group">
-      <input type="text" required>
-      <label>course name</label>
+      <input type="text" name="course_name" required>
+      <label>Course Name</label>
     </div>
 
     <div class="input-group">
-      <input type="text" required>
-      <label>amount paid</label>
+      <input type="number" name="amount" required>
+      <label>Amount Paid</label>
     </div>
+
     <div class="input-group">
-      <input type="text" required>
-      <label>payment method</label>
+      <input type="text" name="payment_method" required>
+      <label>Payment Method</label>
     </div>
+
     <div class="input-group">
-      <input type="date" required>
+      <input type="date" name="payment_date" required>
       <label></label>
     </div>
 
-    <button>submit</button>
+    <button type="submit" name="save_payment">Submit</button>
+  </form>
+</div>
 
-    <div class="in
+</body>
+</html>
