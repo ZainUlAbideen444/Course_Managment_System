@@ -1,54 +1,53 @@
+/* RESET */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* BODY BACKGROUND */
+
 body {
-    min-height: 100vh;
-    background: linear-gradient(120deg, #000000, #1c1c1c);
-    color: #fff;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
 }
 
-/* NAVBAR */
+
 .navbar {
-    height: 70px;
-    background: #000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 40px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+  width: 100%;
+  height: 70px;
+  background: #000;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 40px;
 }
 
 .nav-logo {
-    font-size: 20px;
-    font-weight: 600;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.nav-links li {
-    margin-left: 25px;
+  list-style: none;
+  display: flex;
+  gap: 25px;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 15px;
-    transition: 0.3s;
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
 }
 
 .nav-links a:hover {
-    color: #00aced;
+  color: #00ffcc;
 }
 
-/* FORM CENTERING */
+
 .form-wrapper {
     min-height: calc(100vh - 70px);
     display: flex;
@@ -57,7 +56,7 @@ body {
     padding: 40px 15px;
 }
 
-/* FORM CARD */
+
 .modern-form {
     width: 100%;
     max-width: 420px;
@@ -68,7 +67,7 @@ body {
     box-shadow: 0 20px 40px rgba(0,0,0,0.5);
 }
 
-/* FORM TEXT */
+
 .modern-form h2 {
     text-align: center;
     font-weight: 600;
@@ -81,7 +80,6 @@ body {
     margin-bottom: 30px;
 }
 
-/* INPUT GROUP */
 .input-group {
     position: relative;
     margin-bottom: 25px;
@@ -93,7 +91,7 @@ body {
     background: transparent;
     border: none;
     border-bottom: 2px solid #666;
-    color: #fff;
+    color: #0c0606;
     font-size: 15px;
     outline: none;
 }
@@ -109,7 +107,6 @@ body {
     transition: 0.3s;
 }
 
-/* FLOATING LABEL */
 .input-group input:focus + label,
 .input-group input:valid + label {
     top: -6px;
@@ -117,12 +114,11 @@ body {
     color: #00aced;
 }
 
-/* INPUT FOCUS */
+
 .input-group input:focus {
     border-bottom-color: #00aced;
 }
 
-/* BUTTON */
 button {
     width: 100%;
     padding: 14px;
@@ -141,3 +137,24 @@ button:hover {
     box-shadow: 0 10px 25px rgba(0,172,237,0.4);
 }
 
+.input-group select {
+    width: 100%;
+    padding: 14px 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #666;
+    color: #000;
+    font-size: 15px;
+    outline: none;
+}
+
+.input-group select:focus {
+    border-bottom-color: #00aced;
+}
+
+.input-group select:focus + label,
+.input-group select:valid + label {
+    top: -6px;
+    font-size: 12px;
+    color: #00aced;
+}

@@ -1,24 +1,32 @@
 <?php
 include 'db.php';
 
+
+$students = mysqli_query($conn, "SELECT * FROM students");
+$courses  = mysqli_query($conn, "SELECT * FROM course");
+
+
 if (isset($_POST['save_payment'])) {
 
-    $course_name     = $_POST['course_name'];
-    $amount          = $_POST['amount'];
-    $payment_method  = $_POST['payment_method'];
-    $payment_date    = $_POST['payment_date'];
+    $student_id = $_POST['student_id'];
+    $course_id  = $_POST['course_id'];
+    $amount     = $_POST['amount'];
+    $method     = $_POST['method'];
+    $date       = $_POST['date'];
 
-    $query = "INSERT INTO payments (course_name, amount, payment_method, payment_date)
-              VALUES ('$course_name', '$amount', '$payment_method', '$payment_date')";
+    $query = "INSERT INTO payments 
+          (student_id, course_id, amount_paid, payment_method, payment_date)
+          VALUES 
+          ('$student_id', '$course_id', '$amount', '$method', '$date')";
+
 
     if (mysqli_query($conn, $query)) {
-        echo "<script>alert('Payment added successfully');</script>";
+        echo "<script>alert('Payment Added Successfully');</script>";
     } else {
-        echo "Error: " . mysqli_error($conn);
+        echo mysqli_error($conn);
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +36,7 @@ if (isset($_POST['save_payment'])) {
 </head>
 <body>
 
-<!-- NAVBAR -->
+
 <nav class="navbar">
   <div class="nav-logo">Training System</div>
   <ul class="nav-links">
@@ -39,35 +47,54 @@ if (isset($_POST['save_payment'])) {
   </ul>
 </nav>
 
-<!-- FORM -->
 <div class="form-wrapper">
-  <form class="modern-form" method="POST" action="">
-    <h2>Add Payment</h2>
-    <p class="subtitle">Enter payment details</p>
+<form class="modern-form" method="POST">
 
-    <div class="input-group">
-      <input type="text" name="course_name" required>
-      <label>Course Name</label>
-    </div>
+<h2>Add Payment</h2>
+<p class="subtitle">Enter payment details carefully</p>
 
-    <div class="input-group">
-      <input type="number" name="amount" required>
-      <label>Amount Paid</label>
-    </div>
-
-    <div class="input-group">
-      <input type="text" name="payment_method" required>
-      <label>Payment Method</label>
-    </div>
-
-    <div class="input-group">
-      <input type="date" name="payment_date" required>
-      <label></label>
-    </div>
-
-    <button type="submit" name="save_payment">Submit</button>
-  </form>
+<div class="input-group">
+  <select name="student_id" required>
+    <option value="" disabled selected></option>
+    <?php while($s = mysqli_fetch_assoc($students)) { ?>
+      <option value="<?= $s['id']; ?>"><?= $s['name']; ?></option>
+    <?php } ?>
+  </select>
+  <label>Select Student</label>
 </div>
+
+<div class="input-group">
+  <select name="course_id" required>
+    <option value="" disabled selected></option>
+    <?php while($c = mysqli_fetch_assoc($courses)) { ?>
+      <option value= ?><?= $c['course_name']; ?></option>
+    <?php } ?>
+
+
+  </select>
+  <label>Select Course</label>
+</div>
+
+<div class="input-group">
+  <input type="number" name="amount" required>
+  <label>Amount Paid</label>
+</div>
+
+<div class="input-group">
+  <input type="text" name="method" required>
+  <label>Payment Method</label>
+</div>
+
+<div class="input-group">
+  <input type="date" name="date" required>
+  <label></label>
+</div>
+
+<button type="submit" name="save_payment">Submit</button>
+
+</form>
+</div>
+
 
 </body>
 </html>

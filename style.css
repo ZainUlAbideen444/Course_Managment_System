@@ -60,14 +60,13 @@ body {
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-    /* Background image */
-    background-image: url('bgcc.jpg'); /* Replace with your image path */
-    background-size: cover;       /* Cover entire page */
-    background-position: center;  /* Center the image */
-    background-repeat: no-repeat; /* No repeat */
-    background-attachment: fixed; /* Stays in place on scroll */
+    background-image: url('bgcc.jpg'); 
+    background-size: cover;       
+    background-position: center;  
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
 
-    /* Optional: overlay for dim effect */
+ 
     position: relative;
 }
 
@@ -84,31 +83,42 @@ body::before {
 
 
 
-.navbar-nav {
-    flex-direction: row !important;
+
+.navbar {
+  width: 100%;
+  height: 70px;
+  background: #000;
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 40px;
 }
 
-.navbar-nav .nav-item {
-    margin-left: 20px;
+.nav-logo {
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
 }
 
-.simple-nav {
-    background: #000;
-    padding: 15px 30px;
-    display: flex;
-    justify-content: flex-end;
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
 }
 
-.simple-nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 25px;
-    font-weight: 500;
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
 }
 
-.simple-nav a:hover {
-    color: #00aced;
+.nav-links a:hover {
+  color: #00ffcc;
 }
+
 
 
 .home-container {
@@ -133,53 +143,12 @@ body::before {
 }
 
 
-
-
-
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
-
-/* BODY */
 body {
     background: #111;
     color: #fff;
 }
 
-/* NAVBAR */
-.navbar {
-    height: 70px;
-    background: #000;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 40px;
-}
 
-.nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.nav-links li {
-    margin-left: 25px;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: #fff;
-}
-
-.nav-links a:hover {
-    color: #00aced;
-}
-
-
-/* CARDS SECTION */
 .cards-section {
     padding: 60px 40px;
 }
@@ -190,7 +159,7 @@ body {
     font-size: 30px;
 }
 
-/* CARDS GRID */
+
 .cards-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

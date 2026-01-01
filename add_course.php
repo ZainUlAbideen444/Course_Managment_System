@@ -2,19 +2,23 @@
 include 'db.php';
 
 if (isset($_POST['save_course'])) {
-    $course_name = $_POST['course_name'];
-    $fee         = $_POST['fee'];
-    $duration    = $_POST['duration'];
 
-    $query = "INSERT INTO courses (course_name, fee, duration) VALUES ('$course_name', '$fee', '$duration')";
+    $course_name = mysqli_real_escape_string($conn, $_POST['course_name']);
+    $fee         = mysqli_real_escape_string($conn, $_POST['fee']);
+    $duration    = mysqli_real_escape_string($conn, $_POST['duration']);
+
+    $query = "INSERT INTO course (course_name, fee, duration)
+              VALUES ('$course_name', '$fee', '$duration')";
 
     if (mysqli_query($conn, $query)) {
-        echo "<script>alert('Course added successfully');window.location='add_course.php';</script>";
+        echo "<script>alert('Course Added Successfully');</script>";
     } else {
-        echo "Error: " . mysqli_error($conn);
+        die(mysqli_error($conn)); // IMPORTANT
     }
 }
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +28,7 @@ if (isset($_POST['save_course'])) {
 </head>
 <body>
 
-<!-- NAVBAR -->
+
 <nav class="navbar">
   <div class="nav-logo">Training System</div>
   <ul class="nav-links">
@@ -35,7 +39,7 @@ if (isset($_POST['save_course'])) {
   </ul>
 </nav>
 
-<!-- FORM WRAPPER -->
+
 <div class="form-wrapper">
   <form class="modern-form" method="POST" action="">
     <h2>Add Course</h2>
